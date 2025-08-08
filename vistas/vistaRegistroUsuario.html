@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro Usuario</title>
+  <link rel="stylesheet" href="stylesUsuario.css" />
+ 
+</head>
+<body>
+  <div class="header">
+  <img src="../imagenesGNRL/PNGs/taptaskPNGwhite.png" alt="Logo" class="logo" />
+</div>
+  <div class="container">
+    <div class="registro-card">
+      <div class="form-section">
+        <div class="form-wrapper">
+          <h2>Registrar usuario</h2>
+          <form action="../controladores/controladorUsuario.php" method="post" enctype="multipart/form-data">
+            <input name="nombreUsuario" type="text" placeholder="Nombre de usuario" required />
+            <input id="nombre" name="nombre" type="text" placeholder="Nombre" required />
+            <input name="apellido" type="text" placeholder="Apellido" required />
+            <input id="fechaNacimiento" name="fechaNacimiento" type="date" required />
+            <input name="telefono" type="tel" placeholder="Teléfono" pattern="[0-9]{9}">
+            <input name="email" type="email" placeholder="Email" required>
+            <input name="contrasena" type="password" placeholder="Contraseña" required />
+            <label for="file-input" class="file-label">Subir foto de perfil</label>
+            <input name="fotoPerfil" accept="image/*" type="file" id="file-input" hidden>
+            <input name="form" type="hidden" value="Cliente">
+            <button type="submit">Registrarse</button>
+          </form>
+           <script src="appRegistroUsuario.js"></script>
+          <div class="login-link">
+            ¿Ya tienes una cuenta? <a href="vistaInicioSesion.html">Iniciar sesión</a>
+          </div>
+        </div>
+      </div>
+      <div class="visual-section">
+        <div class="graphic">
+          <h3>¡Bienvenido!</h3>
+          <p>Descubrí nuevas oportunidades con tu perfil</p>
+          <img src="imgs/2.png" alt="Personaje" class="personaje"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tailer">
+  <img src="../imagenesGNRL/PNGs/copyright.png" alt="Copy" class="copy">
+</div>
+</body>
+</html>

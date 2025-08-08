@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro Empresa</title>
+  <link rel="stylesheet" href="stylesEmpresa.css" />
+  <script src="appRegistroEmpresa.js"></script>
+</head>
+<body>
+  <div class="header">
+  <img src="../imagenesGNRL/PNGs/taptaskPNGwhite.png" alt="Logo" class="logo" />
+</div>
+  <div class="container">
+    <div class="registro-card">
+      <div class="form-section">
+        <div class="form-wrapper">
+          <h2>Registrar empresa</h2>
+          <form method="post" enctype="multipart/form-data" action="../controladores/controladorRegistroUsuario.php">
+            <input name="nombreEmpresa" type="text" placeholder="Nombre fantasía de la empresa" required />
+            <input name="empresaAsociada" type="text" placeholder="Razón social" required />
+            <input name="RUT" type="text" placeholder="RUT / NIT / CUIT" required />
+            <input name="email" type="email" placeholder="Correo corporativo" required />
+            <input name="telefono" type="tel" placeholder="Teléfono de contacto" required />
+            <input name="direccion" type="text" placeholder="Dirección comercial" required />
+            <input name="codigoPostal" type="text" placeholder="Código postal" required />
+            <input name="rubro" type="text" placeholder="Rubro o sector" required />
+            <input name="contrasena" type="password" placeholder="Contraseña" autocomplete="off" required />
+            <label for="file-input" class="file-label">Subir foto de perfil</label>
+            <input name="logo" accept="image/*" type="file" id="file-input" hidden>
+            <input name="form" type="hidden" value="Empresa">
+            <button type="submit">Registrarse</button>
+          </form>
+          <div class="login-link">
+            ¿Ya tienen una cuenta? <a href="vistaInicioSesion.html">Iniciar sesión</a>
+          </div>
+        </div>
+      </div>
+      <div class="visual-section">
+        <div class="graphic">
+          <h3>¡Bienvenido!</h3>
+          <p>Conectá tu empresa con miles de oportunidades</p>
+          <img src="imgs/4.png" alt="Logo Empresa" class="personaje" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tailer">
+  <img src="../imagenesGNRL/PNGs/copyright.png" alt="Copy" class="copy">
+</div>
+</body>
+</html>
