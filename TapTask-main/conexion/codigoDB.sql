@@ -1,5 +1,7 @@
 CREATE DATABASE IF NOT EXISTS TapTaskServiceDB;
+
 USE TAPTASKSERVICEDB;
+
 CREATE TABLE IF NOT EXISTS USUARIOS (
 iduser int auto_increment,
 nombreUsuario varchar (100),
@@ -10,12 +12,14 @@ eliminacion boolean,
 constraint CLP_USUARIOS  PRIMARY KEY (iduser),
 constraint CLU_USUARIOS UNIQUE KEY (nombreUsuario)
 );
+
 CREATE TABLE IF NOT EXISTS TELEFONOS (
 iduser_telefonos int (100),
 telefonos int (9),
 constraint CLP_TELEFONOS  PRIMARY KEY (telefonos,iduser_telefonos),
 constraint CLE_TELEFONOS  FOREIGN KEY (iduser_telefonos) REFERENCES usuarios(iduser)
 );
+
 CREATE TABLE IF NOT EXISTS UBICACION (
 idubicacion int not null,
 departamento varchar (25),
@@ -37,6 +41,7 @@ calle text,
 numero varchar (5),
 constraint CLP_UBICACION PRIMARY KEY (idubicacion)
 );
+
 CREATE TABLE IF NOT EXISTS CLIENTES (
 iduser_clientes int auto_increment,
 reputacion_cl ENUM ("Faltan datos suficientes","Madera","Plata","Platino","Diamante","Radiante"),
@@ -50,11 +55,13 @@ constraint CLP_CLIENTES  PRIMARY KEY (iduser_clientes),
 constraint CLE_CLIENTES  FOREIGN KEY (iduser_clientes) REFERENCES usuarios(iduser),
 constraint CLE_CLIENTES2  FOREIGN KEY (idubicacion_clientes) REFERENCES ubicacion(idubicacion)
 );
+
 CREATE TABLE IF NOT EXISTS ADMINISTRADORES (
 iduser_administradores int auto_increment,
 constraint CLP_ADMINISTRADORES  PRIMARY KEY (iduser_administradores),
 constraint CLE_ADMINISTRADORES  FOREIGN KEY (iduser_administradores) REFERENCES usuarios(iduser)
 );
+
 CREATE TABLE IF NOT EXISTS PROVEEDOR (
 iduser_proveedor int auto_increment,
 reputacion_em ENUM ("Faltan datos suficientes","Madera","Plata","Platino","Diamante","Radiante"),
@@ -71,6 +78,7 @@ constraint CLP_PROVEEDOR  PRIMARY KEY (iduser_proveedor),
 constraint CLE_PROVEEDOR  FOREIGN KEY (iduser_proveedor) REFERENCES usuarios(iduser),
 constraint CLE_PROVEEDOR2  FOREIGN KEY (idubicacion_proveedor) REFERENCES ubicacion(idubicacion)
 );
+
 CREATE TABLE IF NOT EXISTS SERVICIO(
 idservice int auto_increment,
 titulo varchar (100),
@@ -81,6 +89,7 @@ precio decimal (10,2),
 disponibilidad enum ("Disponible","Ocupado"),
 constraint CLP_SERVICIO  PRIMARY KEY (idservice)
 );
+
 CREATE TABLE IF NOT EXISTS IMAGENES (
 idimagenes int auto_increment,
 idservice_imagenes int (100),
@@ -88,6 +97,7 @@ imagenes varchar (100),
 constraint CLP_IMAGENES PRIMARY KEY (idimagenes),
 constraint CLE_IMAGENES FOREIGN KEY (idservice_imagenes) REFERENCES servicio(idservice)
 );
+
 CREATE TABLE IF NOT EXISTS OFERTA (
 idoferta int NOT NULL AUTO_INCREMENT,
 iduser_oferta int,
@@ -100,6 +110,7 @@ constraint CLP_OFERTA PRIMARY KEY (idoferta),
 constraint CLE_OFERTA FOREIGN KEY (iduser_oferta) REFERENCES usuarios(iduser),
 constraint CLE_OFERTA2 FOREIGN KEY (idservice_oferta) REFERENCES servicio(idservice)
 );
+
 CREATE TABLE IF NOT EXISTS RESERVAS (
 idreserva int NOT NULL AUTO_INCREMENT,
 iduser_reserva int,
@@ -113,6 +124,7 @@ constraint CLP_RESERVAS PRIMARY KEY (idreserva),
 constraint CLE_RESERVAS FOREIGN KEY (iduser_reserva) REFERENCES usuarios(iduser),
 constraint CLE_RESERVAS2 FOREIGN KEY (idservice_reserva) REFERENCES servicio(idservice)
 );
+
 CREATE TABLE IF NOT EXISTS RESENAS (
 idreview int auto_increment,
 iduser_resenas int (100) NOT NULL,
@@ -125,6 +137,7 @@ constraint CLE_RESENAS FOREIGN KEY (iduser_resenas) REFERENCES usuarios(iduser),
 constraint CLE_RESENAS2 FOREIGN KEY (iduser_empresa) REFERENCES PROVEEDOR(iduser_proveedor),
 constraint CLE_RESENAS3 FOREIGN KEY (idservice_resenas) REFERENCES servicio(idservice)
 );
+
 CREATE TABLE IF NOT EXISTS PREGUNTAS (
 idpreguntas int auto_increment,
 iduser_preguntas int (100),
@@ -135,6 +148,7 @@ solucion boolean,
 constraint CLP_PREGUNTAS PRIMARY KEY (idpreguntas),
 constraint CLE_PREGUNTAS FOREIGN KEY (iduser_preguntas) REFERENCES CLIENTES(iduser_clientes)
 );
+
 CREATE TABLE IF NOT EXISTS MENSAJES(
 idmensajes int auto_increment,
 contenido text,
@@ -143,6 +157,7 @@ entregado  datetime DEFAULT CURRENT_TIMESTAMP,
 leido datetime DEFAULT CURRENT_TIMESTAMP,
 constraint CLP_MENSAJES PRIMARY KEY (idmensajes)
 );
+
 CREATE TABLE IF NOT EXISTS CHAT (
 idchat int NOT NULL AUTO_INCREMENT,
 idmensajes_chat int (100),
