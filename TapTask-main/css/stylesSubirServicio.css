@@ -1,0 +1,122 @@
+body {
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-navbar {
+    justify-self: center;
+}
+
+.navbar-branding-logo {
+    padding-left: 60px;
+}
+
+.form-container {
+    width: 70%;
+    border-radius: 20px;
+    box-shadow: #ddd 1px;
+    background-color: #292929;
+    padding: 70px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    justify-self: center;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+}
+
+p {
+    color: #ffffff;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #ffffff;
+}
+
+input, select, textarea {
+    flex: 1;
+    color: #ffffff;
+    height: 24px;
+    line-height: 24px;
+    padding-left: var(--dl-layout-space-oneandhalfunits);
+    outline: #ffffff;
+    border: coral;
+}
+
+.imagen {
+    flex: 1;
+    color: #ffffff;
+    height: 24px;
+    line-height: 24px;
+    padding-left: var(--dl-layout-space-oneandhalfunits);
+    outline: #ffffff;
+    background-color: rgba(217, 217, 217, 0);
+}
+
+.localidad {
+    flex: 1;
+    color: #ffffff;
+    height: 24px;
+    line-height: 24px;
+    padding-left: var(--dl-layout-space-oneandhalfunits);
+    outline: #ffffff;
+    background-color: rgba(217, 217, 217, 0);
+}
+
+.tailer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.copy {
+  max-width: 30%;
+  height: auto;
+}
+
+textarea {  
+    height: 100px;
+    resize: none;
+}
+
+button {
+    cursor: pointer;
+    display: flex;
+    transition: 0.3s;
+    align-items: center;
+    padding-top: var(--dl-layout-space-oneandhalfunits);
+    padding-left: var(--dl-layout-space-twounits);
+    border-radius: 58px;
+    padding-right: var(--dl-layout-space-twounits);
+    flex-direction: column;
+    padding-bottom: var(--dl-layout-space-oneandhalfunits);
+}
+
+button:hover {
+    opacity: 0.4;
+    animation: ease-in;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input[type="file"] {
+    padding: 4px;
+}
+
+form input, form select, form textarea {
+    margin-bottom: 15px;
+    background-color: #393939;
+    border-radius: 6px;
+}
+
+form select, form input[type="number"] {
+    width: 100%;
+}

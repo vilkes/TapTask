@@ -1,0 +1,123 @@
+.producto-container {
+    max-width: 13   00px;
+    background-color: #2f2f2f;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    flex-wrap: wrap;
+}
+
+.der {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #2f2f2f;
+  border-radius: 10px;
+  color: white;
+  width: 100%;
+  max-width: 400px;
+}
+
+.producto-container .izq {
+    flex: 1;
+    min-width: 280px;
+}
+
+.producto-container .izq img {
+    width: 100%;
+    height: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.producto-container .der {
+    flex: 1;
+    min-width: 280px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-family: 'Arial', sans-serif;
+}
+
+.producto-container .der h2 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.producto-container .der p {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    color: #cccccc;
+}
+
+.producto-container .der .precio {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #25d16d;
+    margin: 12px 0;
+}
+
+.producto-container .der button,
+.producto-container .der .btn-ver-detalle {
+    cursor: pointer;
+    margin-top: auto;
+    display: flex;
+    transition: 0.3s;
+    align-items: center;
+    padding-top: var(--dl-layout-space-oneandhalfunits);
+    padding-left: var(--dl-layout-space-twounits);
+    border-radius: 58px;
+    padding-right: var(--dl-layout-space-twounits);
+    flex-direction: column;
+    padding-bottom: var(--dl-layout-space-oneandhalfunits);
+}
+
+.producto-container .der button:hover,
+.producto-container .der .btn-ver-detalle:hover {
+    opacity: 0.4;
+    animation: ease-in;
+}
+
+#toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4BB543;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    z-index: 1000;
+    font-weight: bold;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .producto-container {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .producto-container .izq,
+    .producto-container .der {
+        min-width: 100%;
+    }
+
+    .producto-container .der h2 {
+        font-size: 1.3rem;
+    }
+
+    .producto-container .der .precio {
+        font-size: 1.2rem;
+    }
+}
