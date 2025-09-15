@@ -7,7 +7,6 @@ class controladorInicioSesion {
     public function __construct() {
         $this->modelo = new modeloInicioSesion();
     }
-
     public function login($email, $contrasena) {
         $usuario = $this->modelo->buscarUsuarioPorEmail($email);
 
