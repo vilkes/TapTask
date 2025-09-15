@@ -14,6 +14,9 @@ const calle = document.getElementById("calle");
 const numero = document.getElementById("numero");
 const codigoPostal= document.getElementById("codigoPostal");
 const nombreUsuario = document.getElementById("nombreUsuario"); 
+const fechaNacimiento = document.getElementById("fechaNacimiento");
+const form = document.getElementById("form");
+const fotoPerfil = document.getElementById("file-input"); // tu input file
 
 if (calle) { // "calle" es tu input
   calle.addEventListener("input", (e) => {
@@ -78,6 +81,24 @@ if(apellido){
     }
 
     e.target.value = soloLetras;
+  });
+}
+if(fechaNacimiento){
+  fechaNacimiento.addEventListener("input", (e) => {
+    let valor = e.target.value;
+    // Formato esperado: YYYY-MM-DD
+    const partes = valor.split("-");
+    if (partes.length === 3) {
+      let year = parseInt(partes[0], 10);
+      let month = parseInt(partes[1], 10);
+      let day = parseInt(partes[2], 10);
+      const hoy = new Date();
+      const edad = hoy.getFullYear() - year;
+      if (edad < 18 || (edad === 18 && (month > (hoy.getMonth() + 1) || (month === (hoy.getMonth() + 1) && day > hoy.getDate())))) {
+        alert("Debes tener al menos 18 años.");
+        e.target.value = "";
+      }
+    }
   });
 }
 if(nombreUsuario){
@@ -155,13 +176,6 @@ if (rut) {
         e.target.value = valor;
     });
 }
-if(email){
-email.addEventListener("input", (e) => {
-  // convertir a minúsculas y eliminar espacios
-  let valor = e.target.value.toLowerCase().replace(/\s/g, '');
-  e.target.value = valor;
-});
-}
 if(contrasena){
 contrasena.addEventListener("input", (e) => {
   // eliminar espacios
@@ -170,3 +184,31 @@ contrasena.addEventListener("input", (e) => {
 });
 }
 });
+
+
+if (form) {
+form.addEventListener("submit", (e) => {
+  const valorEmail = email.value.toLowerCase().trim();
+  const dominiosPermitidos = ["gmail.com", "outlook.com", "hotmail.com", "yahoo.com"];
+
+  // Verificamos si termina con alguno de los permitidos
+  const esValido = dominiosPermitidos.some(dominio => valorEmail.endsWith("@" + dominio));
+
+  if (!esValido) {
+    e.preventDefault(); // bloquea el envío del formulario
+    alert("Email inválido. Debe terminar en @gmail.com, @outlook.com, @hotmail.com o @yahoo.com");
+    email.focus();
+    return false;
+  }
+
+  // Opcional: validación extra para que no tenga cosas raras después del dominio
+  if (valorEmail.includes(" ")) {
+    e.preventDefault();
+    alert("El email no puede contener espacios");
+    email.focus();
+    return false;
+  }
+
+  // Si pasa todo, el formulario se envía normalmente
+});
+}

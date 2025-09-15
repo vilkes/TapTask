@@ -10,18 +10,28 @@ async function cargarServicio(id) {
             img.src = "../imagenesGNRL/fondos/default.png";
             return;
         }
-
         img.src = data.imagenes[0]?.imagenes || "../imagenesGNRL/fondos/default.jpg";
-
-        info.innerHTML = `
-            <h2>${data.titulo}</h2>
-            <p>Descripición:  ${data.descripcion}</p>
-            <p>Descripición:  ${data.etiquetas}</p>
-            <p>Ubicacion:  ${data.ubicacion}</p>
-            <div class="precio">Precio: $${data.precio}</div>
-            <button id="btnComprar">Reservar</button>
-            </a>
-        `;
+        let html = '';
+        if (data.titulo) {
+            html += `<h2>${data.titulo}</h2>`;
+        }
+        if (data.descripcion) {
+            html += `<p>Descripción: ${data.descripcion}</p>`;
+        }
+        if (data.etiquetas) {
+            html += `<p>Categoría: ${data.etiquetas}</p>`;
+        }
+        if (data.ubicacion) {
+            html += `<p>Ubicación: ${data.ubicacion}</p>`;
+        }
+        if (data.tipoServicio) {
+            html += `<p>Tipo de servicio: ${data.tipoServicio}</p>`;
+        }
+        if (data.precio) {
+            html += `<div class="precio">Precio: $${data.precio}</div>`;
+        }
+        html += `<button id="btnComprar">Reservar</button>`;
+        info.innerHTML = html;
         /*
         function showToast(mensaje) {
             const toast = document.getElementById("toast");

@@ -19,11 +19,12 @@ class controladorServicio{
         }
     }
     public function subirServicio() {
-        if (isset($_POST['titulo'], $_POST['descripcion'], $_POST['categoria'], $_POST['precio'],$_FILES['imagenes'])) {
+        if (isset($_POST['titulo'],$_POST['modalidad'],$_POST['descripcion'], $_POST['categoria'], $_POST['precio'],$_FILES['imagenes']) && count($_FILES['imagenes']['name']) > 0) {
             $titulo = $_POST['titulo'];
             $descripcion = $_POST['descripcion'];
             $etiquetas = $_POST['categoria'];
             $precio = $_POST['precio'];
+            $tipoServicio = $_POST['modalidad'];
             $disponibilidad = "Disponible";
             if (count($_FILES['imagenes']['name']) > 5) {
                 echo json_encode(['success' => false, 'mensaje' => 'Máximo de 5 imágenes permitido']);
@@ -32,25 +33,25 @@ class controladorServicio{
             $rutasGuardadas = []; 
             $carpetaDestino = '../imagenesUsuarios/imagenesServicios/'; 
             for ($i = 0; $i < count($_FILES['imagenes']['name']); $i++) {
-            $nombreImagen = $_FILES['imagenes']['name'][$i];
-            $rutaTemporal = $_FILES['imagenes']['tmp_name'][$i];
-            $error = $_FILES['imagenes']['error'][$i];
+                $nombreImagen = $_FILES['imagenes']['name'][$i];
+                $rutaTemporal = $_FILES['imagenes']['tmp_name'][$i];
+                $error = $_FILES['imagenes']['error'][$i];
 
-            if ($error === UPLOAD_ERR_OK) {
-            $ext = strtolower(pathinfo($nombreImagen, PATHINFO_EXTENSION));
-            $extensionesPermitidas = ['jpg', 'jpeg', 'png', 'gif'];
-            if (!in_array($ext, $extensionesPermitidas)) {
-                continue;
-            }
-            $nombreUnico = uniqid() . "_" . basename($nombreImagen);
-            $rutaFinal = $carpetaDestino . $nombreUnico;
+                if ($error === UPLOAD_ERR_OK) {
+                    $ext = strtolower(pathinfo($nombreImagen, PATHINFO_EXTENSION));
+                    $extensionesPermitidas = ['jpg', 'jpeg', 'png', 'gif'];
+                    if (!in_array($ext, $extensionesPermitidas)) {
+                        continue;
+                    }
+                    $nombreUnico = uniqid() . "_" . basename($nombreImagen);
+                    $rutaFinal = $carpetaDestino . $nombreUnico;
 
-            // Mover archivo
-            if (move_uploaded_file($rutaTemporal, $rutaFinal)) {
-                $rutasGuardadas[] = $rutaFinal; 
+                        // Mover archivo
+                    if (move_uploaded_file($rutaTemporal, $rutaFinal)) {
+                        $rutasGuardadas[] = $rutaFinal; 
+                    }
+                }
             }
-        }
-    }
             if (!isset($_SESSION['usuario_id'])) {
                 echo "Error: usuario no autenticado.";
                 exit;
@@ -64,22 +65,18 @@ class controladorServicio{
                 echo "Error: no se pudo obtener la ubicación del usuario.";
                 return;
             }
-            $servicio = new Servicio($titulo, $descripcion, $etiquetas, $ubicacionStr, $precio, $disponibilidad);
+            $servicio = new Servicio($titulo, $descripcion, $etiquetas, $ubicacionStr, $precio, $disponibilidad,$tipoServicio);
             $idServicio = $servicio->agregarServicio($usuarioId);
             if ($idServicio) {
-               echo "Servicio agregado exitosamente. ID: $idServicio";
-
-                // Ahora subís las imágenes usando el ID
                 foreach ($rutasGuardadas as $rutaImagen) {
                     $imagen = new ImagenServicio($idServicio, $rutaImagen);
                     $imagen->guardarImagen();
                 }
+                header('location: ../vistas/vistaListarServicios.php');
             } else {
                 echo "Error al agregar el servicio.";
                 return;
             }
-
-
         } else {
             echo "Faltan datos del formulario.";
             return;

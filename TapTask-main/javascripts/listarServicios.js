@@ -32,7 +32,7 @@ async function cargarServicios() {
                 <div class="imagen-contenedor"><img src="${servicio.imagenes[0].imagenes}" alt="Imagen del servicio"></div>
                 <div class="titulo">${servicio.titulo}</div>
                 <div class="precio">$${servicio.precio}</div>
-                <a href="../vistas/vistaServicio.html?id=${servicio.idservice}" class="btn-ver-detalle">Ver detalle</a>
+                <a href="../vistas/vistaServicio.php?id=${servicio.idservice}" class="btn-ver-detalle">Ver detalle</a>
                 `;
             container.appendChild(div);
         });

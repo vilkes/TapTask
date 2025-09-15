@@ -84,18 +84,18 @@ class Usuario {
         $stmt->execute([$iduser]);
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
         if (!$usuario) {
-            header('Location: ../vistas/vistaRegistroUsuario.html');
+            header('Location: ../vistas/vistaRegistroUsuario.php');
            return;
         }
         if (!password_verify($contraseñaActual, $usuario['contrasena'])) {
-            header('Location: ../vistas/pruebas.html');
+            header('Location: ../vistas/pruebas.php');
             return;   
         }
 
         $nuevaHash = password_hash($contraseñaNueva, PASSWORD_BCRYPT);
         $update = $this->conexion->prepare("UPDATE USUARIOS SET contrasena = ? WHERE iduser = ?");
         $update->execute([$nuevaHash, $iduser]);
-        header('Location: ../vistas/vistaPrincipal.html');
+        header('Location: ../vistas/vistaPrincipal.php');
     }
 }
 

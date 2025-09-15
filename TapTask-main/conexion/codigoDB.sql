@@ -87,6 +87,7 @@ etiquetas varchar (100),
 ubicacion varchar (255),
 precio decimal (10,2),
 disponibilidad enum ("Disponible","Ocupado"),
+tiposervicio enum ("Online","A domicilio","En sitio"),
 constraint CLP_SERVICIO  PRIMARY KEY (idservice)
 );
 

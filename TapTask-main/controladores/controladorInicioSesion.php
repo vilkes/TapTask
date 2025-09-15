@@ -7,6 +7,7 @@ class controladorInicioSesion {
     public function __construct() {
         $this->modelo = new modeloInicioSesion();
     }
+
     public function login($email, $contrasena) {
         $usuario = $this->modelo->buscarUsuarioPorEmail($email);
 
@@ -16,9 +17,9 @@ class controladorInicioSesion {
             $_SESSION['tipo']   = $usuario['tipo'];
 
             if ($usuario['tipo'] === 'cliente') {
-                header("Location: ../vistas/vistaListarServicios.html");
+                header("Location: ../vistas/vistaListarServicios.php");
             } else {
-                header("Location: ../vistas/vistaPublicacionServicio.html");
+                header("Location: ../vistas/vistaPublicacionServicio.php");
             }
             exit;
         } else {

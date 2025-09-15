@@ -7,10 +7,11 @@ class Servicio {
     private $ubicacion;
     private $precio;
     private $disponibilidad;
+    private $tipoServicio;
 
     private $conexion;
 
-     public function __construct($titulo = null, $descripcion = null, $etiquetas = null, $ubicacion = null, $precio = null, $disponibilidad = null) {
+     public function __construct($titulo = null, $descripcion = null, $etiquetas = null, $ubicacion = null, $precio = null, $disponibilidad = null, $tipoServicio = null) {
         global $pdo;
         $this->conexion = $pdo;
         if ($titulo !== null) {
@@ -31,10 +32,13 @@ class Servicio {
         if ($disponibilidad !== null) {
             $this->disponibilidad = $disponibilidad;
         }
+        if ($tipoServicio !== null) {
+            $this->tipoServicio = $tipoServicio;
+        }
      }
      public function agregarServicio($usuarioId) {
-        $sql = "INSERT INTO servicio (titulo, descripcion, etiquetas, ubicacion, precio, disponibilidad/*, usuario_id*/) 
-                VALUES (:titulo, :descripcion, :etiquetas, :ubicacion, :precio, :disponibilidad/*, :usuario_id*/)";
+        $sql = "INSERT INTO servicio (titulo, descripcion, etiquetas, ubicacion, precio, disponibilidad, tipoServicio) 
+                VALUES (:titulo, :descripcion, :etiquetas, :ubicacion, :precio, :disponibilidad,:tipoServicio)";
         $stmt = $this->conexion->prepare($sql);
         $stmt->execute([
         ':titulo' => $this->titulo,
@@ -42,8 +46,8 @@ class Servicio {
         ':etiquetas' => $this->etiquetas,
         ':ubicacion' => $this->ubicacion,
         ':precio' => $this->precio,
-        ':disponibilidad' => $this->disponibilidad/*,
-        ':usuario_id' => $usuarioId*/
+        ':disponibilidad' => $this->disponibilidad,
+        ':tipoServicio'=> $this->tipoServicio
         ]);
         return $this->conexion->lastInsertId();
      }

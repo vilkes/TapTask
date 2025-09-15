@@ -90,7 +90,7 @@ class controladorPerfilUsuario {
                 return ["error" => "Todos los campos son obligatorios"];
             }
             return $this->usuario->cambiarContrasena($iduser, $contraseñaActual, $contraseñaNueva, $contraseñaNuevaConfirmar);
-            header('Location: ../vistas/vistaPerfilUsuario.html');
+            header('Location: ../vistas/vistaPerfilUsuario.php');
     }  
 }
 }

@@ -9,9 +9,9 @@ include '../modelos/modeloUsuarioTelefono.php';
 include '../modelos/modeloUsuarioEmpresa.php';
 include '../modelos/modeloUbicacion.php';
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form'])) {
-if ($_POST['form']=='Cliente'){
+if ($_POST['form']=='Cliente' && isset($_POST['nombreUsuario'],$_POST['nombre'],$_POST['apellido'],$_POST['email'],$_POST['telefono'],
+$_POST['contrasena'],$_POST['fechaNacimiento'])) {
     $nombreUsuario = $_POST['nombreUsuario'];
     $nombre = trim($_POST['nombre']);
     $apellido = $_POST['apellido'];
@@ -21,22 +21,19 @@ if ($_POST['form']=='Cliente'){
     $contrasena = trim($_POST['contrasena']);
     $fechaNacimiento = $_POST['fechaNacimiento'];
 
-    
-    if (isset($_FILES['fotoPerfil']) && $_FILES['fotoPerfil']['error'] === UPLOAD_ERR_OK) {
     $nombreImagen = $_FILES['fotoPerfil']['name'];
     $rutaTemporal = $_FILES['fotoPerfil']['tmp_name'];
     $carpetaDestino = '../imagenesUsuarios/fotoPerfil/'; 
     $nombreUnico = uniqid() . "_" . basename($nombreImagen);
     $rutaFinal = $carpetaDestino . $nombreUnico;
 
+    if ($rutaTemporal && $nombreImagen) {
         if (move_uploaded_file($rutaTemporal, $rutaFinal)) {
             $rutaImagen = $rutaFinal;
         } else {
             $rutaImagen = null;
         }
-        } else {
-            $rutaImagen = null;
-        }       
+    } 
 $usuario = new Usuario($nombreUsuario,$contrasena);
 $usuarioTelefono = new UsuarioTelefono($telefono);
 $usuarioCliente = new UsuarioCliente($nombre, $apellido, $fechaNacimiento,$rutaFinal,$email,$reputacion);
@@ -48,12 +45,12 @@ class RegistrarCliente {
             $_SESSION['id_usuario'] = $idUsuario;
             $usuarioTelefono->guardarTelefono($idUsuario);
             $usuarioCliente->guardarCliente($idUsuario);
-            
         } else {
             echo "El nombre de usuario ya está registrado, por favor usa otro.";
             exit;
         }
-        header('Location: ../vistas/vistaRegistroUsuario.html');
+        $_SESSION['mensaje'] = "¡Te registraste correctamente!"; 
+        header('Location: ../vistas/vistaRegistroUsuario.php');
     }
 }
 $controladorCliente = new RegistrarCliente();
@@ -101,7 +98,7 @@ class RegistrarEmpresa{
             $ubicacion->identificarBarrioLocalidad();
             $ubicacion->guardarUbicacion($idUsuario);
             $usuarioEmpresa->guardarEmpresa($idUsuario);
-            header('Location: ../vistas/vistaInicioSesion.html');
+            header('Location: ../vistas/vistaInicioSesion.php');
         } else {
             echo "El nombre de usuario o el email ya están registrados. Por favor usa otros.";
             exit;
