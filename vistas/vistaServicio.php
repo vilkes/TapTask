@@ -191,7 +191,9 @@ if (session_status() === PHP_SESSION_NONE) {
           <div class="precio" id="precioServicio">$U10000</div>
           <button id="btnComprar">Reservar</button>
         </div>
+        <div class="linea-separadora"></div>
         <div class="under">
+          <h2 class="allRatings">Mira las opiniones de los usuarios:</h2>
           <div class="rating-summary">
          <div class="average-rating">
     <h1 id="average">0.0</h1>
@@ -421,40 +423,10 @@ if (session_status() === PHP_SESSION_NONE) {
       }
       charCount.textContent = `${length}/${maxLength}`;
     });
-
-// Ejemplo de calificaciones de los usuarios (puede venir de la base de datos)
-const ratings = [5, 5, 4, 5, 4, 3, 5, 5, 5, 4];
-
-// Contar cantidad de votos por estrella
-const counts = [0, 0, 0, 0, 0];
-ratings.forEach(r => counts[r - 1]++);
-
-const totalRatings = ratings.length;
-const average = ratings.reduce((a, b) => a + b, 0) / totalRatings;
-
-// Actualizar promedio y estrellas
-document.getElementById("average").textContent = average.toFixed(1);
-document.getElementById("stars").textContent = "★★★★★".slice(0, Math.round(average)) + "☆☆☆☆☆".slice(Math.round(average));
-
-// Generar barras dinámicamente
-const container = document.getElementById("rating-bars");
-container.innerHTML = "";
-for (let i = 5; i >= 1; i--) {
-  const count = counts[i - 1];
-  const percentage = totalRatings ? (count / totalRatings) * 100 : 0;
-
-  const bar = `
-    <div class="rating-bar">
-      <span>${i} ★</span>
-      <div class="bar"><div class="fill" style="width:${percentage}%;"></div></div>
-      <span>${percentage.toFixed(0)}%</span>
-    </div>
-  `;
-  container.innerHTML += bar;
-}
   </script>
 
-    <script src="../javascripts/appValidaciones.js"> </script>
+    <script src="../javascripts/appRatings"></script>
+    <script src="../javascripts/appValidaciones.js"></script>
     <script src="../javascripts/appServicio.js"></script>
     <script src="../javascripts/appEstadoSesion.js"></script>
 </body>

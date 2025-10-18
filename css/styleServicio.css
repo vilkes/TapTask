@@ -59,7 +59,7 @@
 .producto-container .der .precio {
     font-size: 1.3rem;
     font-weight: bold;
-    color: #25d16d;
+    color: #80FF44;
     margin: 12px 0;
 }
 .producto-container .der button,
@@ -96,7 +96,7 @@
   font-family: Arial, sans-serif;
   max-width: 900px;
   margin: 20px auto;
-  margin-top: 110px;
+  margin-top: 65px;
   margin-bottom: 80px;
 }
 
@@ -105,6 +105,11 @@
   font-size: 93px;
   margin: 0;
   text-align: center;
+}
+
+.allRatings {
+  color: #ffffff;
+  justify-self: center;
 }
 
 p {
@@ -117,9 +122,32 @@ p {
   text-align: center;
 }
 
+.stars {
+  position: relative;
+  display: inline-block;
+  font-size: 53px;
+  line-height: 1;
+  color: #555;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 2px;
+}
+
+.stars::before {
+  content: '★★★★★';
+  color: gold;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  clip-path: inset(0 calc(100% - var(--rating-percent, 0%)) 0 0);
+}
+
 .rating-bars {
   flex: 1;
   min-width: 250px;
+  padding-top: 20px;
 }
 
 .rating-bar {
@@ -143,8 +171,17 @@ p {
 
 .fill {
   height: 100%;
-  background: #007bff;
+  background: #80FF44;
   border-radius: 10px;
+}
+
+.linea-separadora {
+  width: 50%;
+  height: 1px;
+  background-color: #ffffff;
+  opacity: 30%;
+  margin: 10px auto;
+  border-radius: 20px;
 }
 
 .opinions-container {
@@ -291,7 +328,7 @@ textarea.opinion:focus {
     line-height: 1.4;
     color: #cccccc;
 }
-.opinions-container .der2 .precio {
+.opinions-container .der2 {
     font-size: 1.3rem;
     font-weight: bold;
     color: #25d16d;
@@ -441,6 +478,11 @@ textarea.opinion:focus {
     font-weight: bold;
     text-align: center;
 }
+
+.star-span {
+  color: #ffffff;
+}
+
 @media (max-width: 768px) {
     .producto-container {
         flex-direction: column;
