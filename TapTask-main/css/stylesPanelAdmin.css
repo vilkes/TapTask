@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.panel {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 200px;
+  background: #2b2d42;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar button {
+  background: #8d99ae;
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.sidebar button:hover {
+  background: #edf2f4;
+  color: #2b2d42;
+}
+
+.contenido {
+  flex: 1;
+  padding: 20px;
+  background: #edf2f4;
+  overflow-y: auto;
+}

@@ -1,0 +1,368 @@
+body {
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-navbar {
+    justify-self: center;
+}
+
+.navbar-branding-logo {
+    padding-left: 60px;
+}
+
+body.tema-oscuro .navbar-nav-links1 {
+  color: #ffffff;
+}
+
+body.tema-claro .navbar-nav-links1 {
+  color: #000000;
+}
+
+.precio input {
+  margin: 0 8px; /* 8px a la izquierda y derecha */
+}
+.precio{
+    display: flex;
+    flex-direction: row;
+    width: 10%;
+}
+.form-container {
+    width: 70%;
+    border-radius: 20px;
+    padding: 70px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    justify-self: center;
+}
+
+body.tema-oscuro .form-container {
+    background-color: #292929;
+}
+
+body.tema-claro .form-container {
+    background-color: #ffffff;
+}
+
+h1 {
+    text-align: center;
+}
+
+body.tema-oscuro h1 {
+    color: #ffffff;
+}
+
+body.tema-claro h1 {
+    color: #000000;
+}
+
+p {
+    color: #ffffff;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+body.tema-oscuro label {
+    color: #ffffff;
+}
+
+body.tema-claro label {
+    color: #000000;
+}
+
+input, select, textarea {
+    flex: 1;
+    height: 24px;
+    line-height: 24px;
+    padding-left: var(--dl-layout-space-oneandhalfunits);
+    outline: #ffffff;
+}
+
+body.tema-oscuro #titulo,
+body.tema-oscuro #descripcion,
+body.tema-oscuro #categoria,
+body.tema-oscuro #modalidad,
+body.tema-oscuro #precio,
+body.tema-oscuro #imagenesoscuro {
+  background-color: #3f3f3f;
+  color: #ffffff;
+}
+
+body.tema-claro #titulo,
+body.tema-claro #descripcion,
+body.tema-claro #categoria,
+body.tema-claro #modalidad,
+body.tema-claro #precio,
+body.tema-claro #imagenes {
+  background-color: #e3e3e3;
+  color: #000000;
+}
+
+body.tema-oscuro #suscribeteInput {
+  background-color: #414141;
+}
+
+body.tema-claro #suscribeteInput {
+  background-color: #ffffff;
+}
+
+.imagen {
+    flex: 1;
+    color: #ffffff;
+    height: 24px;
+    line-height: 24px;
+    padding-left: var(--dl-layout-space-oneandhalfunits);
+    outline: #ffffff;
+    background-color: rgba(217, 217, 217, 0);
+}
+
+.localidad {
+    flex: 1;
+    color: #ffffff;
+    height: 24px;
+    line-height: 24px;
+    padding-left: var(--dl-layout-space-oneandhalfunits);
+    outline: #ffffff;
+    background-color: rgba(217, 217, 217, 0);
+}
+
+.tailer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.copy {
+  max-width: 30%;
+  height: auto;
+}
+
+textarea {  
+    height: 100px;
+    resize: none;
+}
+
+button {
+    cursor: pointer;
+    display: flex;
+    transition: 0.3s;
+    align-items: center;
+    padding-top: var(--dl-layout-space-oneandhalfunits);
+    padding-left: var(--dl-layout-space-twounits);
+    border-radius: 58px;
+    padding-right: var(--dl-layout-space-twounits);
+    flex-direction: column;
+    padding-bottom: var(--dl-layout-space-oneandhalfunits);
+}
+
+button:hover {
+    opacity: 0.4;
+    animation: ease-in;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input[type="file"] {
+    padding: 4px;
+}
+
+form input, form select, form textarea {
+    margin-bottom: 15px;
+    background-color: #393939;
+    border-radius: 6px;
+}
+
+form select, form input[type="number"] {
+    width: 100%;
+}
+
+.home-footer {
+  gap: var(--dl-layout-space-fiveunits);
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  padding-left: var(--dl-layout-space-oneandhalfunits);
+  padding-right: var(--dl-layout-space-oneandhalfunits);
+  flex-direction: column;
+  padding-bottom: var(--dl-layout-space-threeunits);
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+    * {
+    font-size: 0.95rem;
+    box-sizing: border-box; /* aplica globalmente */
+  }
+
+  html, body {
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    background-color: #2f2f2f;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    min-height: 100%;
+    align-items: center;
+  }
+
+  .navbar-wrapper {
+    max-width: 425px;
+  }
+
+  .navbar-branding-logo {
+    padding-left: 0px;
+  }
+
+  /* ocultar botones innecesarios */
+  #btnRegistro,
+  #btnLogin {
+    display: none;
+  }
+
+  #open-mobile-menu, #mobile-get-started {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  /* CONTENEDOR PRINCIPAL */
+  .producto-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 95%;  
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box; /* 👉 asegura que el padding no sume ancho extra */
+    gap: 15px;
+  }
+
+  /* IMAGEN */
+  .izq {
+    order: 1;
+    width: 100%;
+    text-align: center;
+  }
+
+  .imagen-producto img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  /* INFORMACIÓN DEL PRODUCTO */
+  .der,
+  .der2 {
+    order: 2;
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .der h2,
+  .der2 h2 {
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+    align-self: flex-start;
+  }
+
+  .der p,
+  .der2 p {
+    align-self: flex-start;
+  }
+
+  .der2 .home-buy.button {
+    width: 70px;
+    height: 15px;
+    justify-content: center;
+  }
+
+  .der2 #btnPublicarOpinion {
+    font-size: 10px;
+  }
+
+  .home-buy.button .home-text43 {
+    font-size: 10px;
+  }
+
+  .der p,
+  .der2 p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  /* BOTÓN COMPRAR */
+  #btnComprar {
+    order: 3;
+    width: 85%;
+    max-width: 340px;
+    font-size: 1rem;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 58px;
+  }
+
+  #info {
+    align-items: center;
+  }
+
+  /* SECCIÓN UNDER */
+  .under {
+    order: 4;
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    font-size: 0.9rem;
+    margin: 0 auto;
+  }
+
+  /* OPINIONES */
+  .form-container {
+    order: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 400px;
+    margin: -20px auto 0 auto;
+    gap: 15px;
+  }
+
+  .opinion {
+    width: 95%;
+    max-width: 360px;
+    background-color: #3a3a3a;
+    border-radius: 10px;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+
+  .rating {
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .der2 .textarea-wrapper {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+  .linea-separadora {
+    display: none;
+  }
+}

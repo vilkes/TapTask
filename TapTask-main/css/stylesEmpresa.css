@@ -1,0 +1,348 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #e3e3e3;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #ffffff;
+}
+
+.header {
+  width: 100%;
+  height: 90px;
+  background-color: #2e2e2e;
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  margin-bottom: 20px;
+}
+
+.navbar-nav-links1 {
+  color: #ffffff;
+}
+
+.navbar-branding-logo {
+    padding-left: 60px;
+}
+
+.copy {
+  max-width: 20%;
+  height: auto;
+}
+
+.logo {
+  height: 150px;
+  width: auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  margin-bottom: 70px;
+}
+
+.registro-card {
+  display: flex;
+  max-width: 900px;
+  width: 100%;
+  height: 580px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
+}
+
+.form-section {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #2f2f2f;
+  overflow-y: auto;
+}
+
+.form-section::-webkit-scrollbar {
+  width: 8px;
+}
+
+.form-section::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.form-section::-webkit-scrollbar-thumb {
+  background-color: #4f4f4f; 
+  border-radius: 10px;
+  border: none;
+}
+
+.form-wrapper {
+  max-width: 300px;
+  width: 100%;
+  padding-top: 300px;
+  margin-left: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  
+}
+
+.form-section h2 {
+  color: #ffffff;
+  font-size: 26px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#nombreEmpresa,
+#empresaAsociada,
+#rut, #email,
+#telefono,
+#calle, #numero,
+#codigoPostal,
+#rubro, #contrasena {
+  background: #414141;
+  border: none;
+  padding: 10px 12px;
+  font-size: 13px;
+  border-radius: 58px;
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+
+}
+
+select {
+  background: #414141;
+  border: none;
+  padding: 10px 12px;
+  font-size: 13px;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+}
+
+#nombreEmpresa:focus,
+#empresaAsociada:focus,
+#rut:focus,
+#email:focus,
+#telefono:focus,
+#calle:focus,
+#numero:focus,
+#codigoPostal:focus,
+#rubro:focus,
+#contrasena:focus,
+select:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+#nombreEmpresa::placeholder,
+#empresaAsociada::placeholder,
+#rut::placeholder,
+#email::placeholder,
+#telefono::placeholder,
+#calle::placeholder,
+#numero::placeholder,
+#codigoPostal::placeholder,
+#rubro::placeholder,
+#contrasena::placeholder {
+  color: #cccccc;
+}
+
+.file-label {
+  cursor: pointer;
+  margin-top: auto;
+  display: flex;
+  transition: 0.3s;
+  align-items: center;
+  padding-top: 15px;
+  padding-left: var(--dl-layout-space-twounits);
+  border-radius: 58px;
+  padding-right: var(--dl-layout-space-twounits);
+  flex-direction: column;
+  padding-bottom: 15px;
+  background-color: #80FF44;
+}
+
+.file-label:hover {
+  opacity: 0.4;
+  animation: ease-in;
+}
+
+.file-label:active {
+  transform: scale(0.95);
+}
+
+button {
+  cursor: pointer;
+  margin-top: auto;
+  display: flex;
+  transition: 0.3s;
+  align-items: center;
+  padding-top: 15px;
+  padding-left: var(--dl-layout-space-twounits);
+  border-radius: 58px;
+  padding-right: var(--dl-layout-space-twounits);
+  flex-direction: column;
+  padding-bottom: 15px;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button:hover {
+  opacity: 0.4;
+  animation: ease-in;
+}
+
+.login-link {
+  font-size: 14px;
+  margin-top: 10px;
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+}
+
+.login-link a {
+  color: #80FF44;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link a:hover {
+  transition: ease-in 0.1s;
+  opacity: 0.4;
+}
+
+.visual-section {
+  flex: 1;
+  background: linear-gradient(135deg, #0fca74, #80FF44);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.graphic h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.graphic p {
+  font-size: 15px;
+  max-width: 280px;
+  margin: 0 auto 20px;
+  color: #fff;
+  line-height: 1.5;
+}
+
+.graphic img {
+  width: 300px;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+
+.home-footer {
+  gap: var(--dl-layout-space-fiveunits);
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  padding-left: var(--dl-layout-space-oneandhalfunits);
+  padding-right: var(--dl-layout-space-oneandhalfunits);
+  flex-direction: column;
+  padding-bottom: var(--dl-layout-space-threeunits);
+  justify-content: center;
+}
+
+@media (max-width: 769px) {
+  * {
+    font-size: 0.95rem;
+    box-sizing: border-box; /* aplica globalmente */
+  }
+
+  html, body {
+    background-color: #0f0f0f;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    min-height: 100%;
+  }
+
+  .navbar-wrapper .navbar-navbar {
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+
+  .navbar-branding-logo {
+    padding-left: 0px;
+  }
+
+  #btnRegistro,
+  #btnLogin {
+    display: none;
+  }
+
+  #open-mobile-menu, #mobile-get-started, .navbar-text3 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .form-section {
+    flex-direction: unset;
+  }
+
+  .visual-section {
+    display: none;
+  }
+
+  .form-wrapper {
+    padding-top: 0px;
+  }
+
+  .login-link {
+    padding-bottom: 40px;
+  }
+}
